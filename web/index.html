@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Laracon</title>
+    <link rel="stylesheet" href="assets/flipclock.css">
+    <style>
+        body { background-color: black;}
+        .your-clock {
+        zoom: 4.0;
+        -moz-transform: scale(4.0);
+
+
+    }
+        .flip-clock-wrapper ul {
+            background: #fff;
+        }
+
+        .flip-clock-wrapper ul li a div.up:after {
+            background-color: #fff;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .flip-clock-wrapper ul li a div div.inn {
+            color: #111;
+            text-shadow: 0 1px 1px #555;
+            background-color: #ddd;
+        }
+        .your-clock {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <div class="your-clock"></div>
+</div>
+<script src="assets/jquery.js"></script>
+<script src="assets/flipclock.js"></script>
+<script>
+    var clock = new FlipClock($('.your-clock'), {
+        clockFace: 'TwentyFourHourClock',
+        showSeconds: false
+    });
+</script>
+</body>
+</html>
