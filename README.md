@@ -12,9 +12,15 @@ Edit `/etc/xdg/lxsession/LXDE/autostart` to turn off screensaver
 @xset s noblank
 ```
 
-Add a bash script to launch it in chromium kiosk mode
+Add a bash script to launch it in chromium kiosk mode:
 
 ```
 #!/usr/bin/env bash
 chromium-browser --kiosk --app=file:///home/pi/stageclock/index.html
+```
+
+Edit `/home/pi/.config/lxsession/LXDE-pi/autostart` to load it automatically on boot:
+
+```
+@/home/pi/Desktop/clock
 ```
