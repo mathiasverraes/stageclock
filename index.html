@@ -3,49 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <title>Clock</title>
-    <link rel="stylesheet" href="assets/flipclock.css">
+    <link href="https://fonts.googleapis.com/css?family=Arvo:700" rel="stylesheet">
     <style>
-        body { background-color: black;}
-        .your-clock {
-        zoom: 4.0;
-        -moz-transform: scale(4.0);
-
-
-    }
-        .flip-clock-wrapper ul {
-            background: #fff;
+        body{
+            background-color: black;
         }
-
-        .flip-clock-wrapper ul li a div.up:after {
-            background-color: #fff;
-            background-color: rgba(0, 0, 0, 0.4);
+        .container {
+            position: relative;
+            height: 100vh;
         }
-
-        .flip-clock-wrapper ul li a div div.inn {
-            color: #111;
-            text-shadow: 0 1px 1px #555;
-            background-color: #ddd;
-        }
-        .your-clock {
+        .clock {
+            font-family: 'Arvo', serif;
+            color: red;
+            font-size: 32vw;
+            width: 100vw;
+            margin: 0;
             position: absolute;
-            left: 50%;
             top: 50%;
-            -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
+            transform: translate(0, -50%);
+            text-align: center;
         }
     </style>
 </head>
 <body>
-<div class="wrap">
-    <div class="your-clock"></div>
+<div class="container">
+
+    <div class="clock">99:99</div>
 </div>
-<script src="assets/jquery.js"></script>
-<script src="assets/flipclock.js"></script>
+
 <script>
-    var clock = new FlipClock($('.your-clock'), {
-        clockFace: 'TwentyFourHourClock',
-        showSeconds: false
-    });
+    function clock() {
+        var time = new Date();
+        document.querySelectorAll('.clock')[0].innerHTML = pad(time.getHours()) + ":" + pad(time.getMinutes());
+
+        function pad(t) {
+            return (t < 10) ? '0' + t : t;
+        }
+    }
+
+    setInterval(clock, 1000);
 </script>
+
 </body>
 </html>
